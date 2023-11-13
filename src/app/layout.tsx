@@ -3,9 +3,11 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Provider } from "react-redux";
 import store from "./store";
+import { cn } from "@/lib/utils";
 
-const openSans = Open_Sans({
+export const openSans = Open_Sans({
 	weight: "variable",
+	variable: "--font-open-sans",
 	subsets: ["latin"],
 	style: ["italic", "normal"],
 	display: "swap",
@@ -18,8 +20,8 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<html lang='en'>
-			<body className={openSans.className}>
+		<html lang='en' suppressHydrationWarning>
+			<body className={cn("font-sans", openSans.variable)}>
 				{/* <Provider store={store}>{children}</Provider> */}
 				<div className='container'>{children}</div>
 			</body>

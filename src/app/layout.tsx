@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { cn } from "@/utilities/lib/utils";
 
-export const openSans = Open_Sans({
+const openSans = Open_Sans({
 	weight: "variable",
 	variable: "--font-open-sans",
 	subsets: ["latin"],

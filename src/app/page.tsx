@@ -1,3 +1,5 @@
+import Hero from "@/components/Home/Hero";
+import Summary from "@/components/Home/Summary";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 
@@ -6,9 +8,12 @@ const Home = () => {
 		<>
 			<div className='h-screen min-[1440px]:max-h-[810px]'>
 				<Header></Header>
+				<Hero></Hero>
 			</div>
 
-			<main></main>
+			<main>
+				<Summary></Summary>
+			</main>
 
 			<Footer></Footer>
 		</>

@@ -39,8 +39,8 @@ module.exports = {
 					foreground: "hsl(var(--muted-foreground))",
 				},
 				accent: {
-					DEFAULT: "hsl(var(--accent))",
-					foreground: "hsl(var(--accent-foreground))",
+					DEFAULT: "rgb(var(--accent))",
+					foreground: "rgb(var(--accent-foreground))",
 				},
 				popover: {
 					DEFAULT: "hsl(var(--popover))",
@@ -72,6 +72,9 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: ["var(--font-open-sans)", ...fontFamily.sans],
+			},
+			backgroundImage: {
+				hero: "url('/bg-hero.png')",
 			},
 		},
 	},

@@ -27,3 +27,4 @@ There are a lot of things that I figured out such as:
 - I can write `weight: "variable"` instead of specifying each and every weight of a font in `layout.tsx`.
 - The `theme.container` object in `tailwind.config.ts` creates a `container` class, which is very helpful to make the pages responsive.
 - If there's a component that requires full height in normal screen but a max-height in larger screens, these classes can handle it: `h-screen min-[1440px]:max-h-[810px]`.
+- I can swap the position of two sibling components using `flex-direction: row-reverse;` css property.

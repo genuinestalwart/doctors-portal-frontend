@@ -71,7 +71,7 @@ module.exports = {
 				"accordion-up": "accordion-up 0.2s ease-out",
 			},
 			fontFamily: {
-				sans: ["var(--font-open-sans)", ...fontFamily.sans],
+				"open-sans": ["var(--font-open-sans)", ...fontFamily.sans],
 			},
 			backgroundImage: {
 				hero: "url('/bg-hero.png')",

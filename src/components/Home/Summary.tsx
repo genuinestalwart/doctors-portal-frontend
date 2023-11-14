@@ -10,8 +10,8 @@ const Summary = () => {
 					<SummaryClock />
 				</div>
 				<div className='space-y-2 w-4/5'>
-					<div className='font-bold'>Opening Hours</div>
-					<p className='font-light text-xs'>
+					<div className='font-bold text-lg'>Opening Hours</div>
+					<p className='text-sm'>
 						Mon - Fri: 9am - 6pm, Sat: 10am - 2pm, Sun: Closed
 					</p>
 				</div>
@@ -22,10 +22,8 @@ const Summary = () => {
 					<SummaryMarker />
 				</div>
 				<div className='space-y-2 w-5/6'>
-					<div className='font-bold'>Visit Our Location</div>
-					<p className='font-light text-xs'>
-						Brooklyn, NY 10036, United States
-					</p>
+					<div className='font-bold text-lg'>Visit Our Location</div>
+					<p className='text-sm'>Brooklyn, NY 10036, United States</p>
 				</div>
 			</div>
 
@@ -34,8 +32,8 @@ const Summary = () => {
 					<SummaryPhone />
 				</div>
 				<div className='space-y-2 w-4/5'>
-					<div className='font-bold'>Contact Us Now</div>
-					<p className='font-light text-xs'>+000 123 456789</p>
+					<div className='font-bold text-lg'>Contact Us Now</div>
+					<p className='text-sm'>+000 123 456789</p>
 				</div>
 			</div>
 		</section>

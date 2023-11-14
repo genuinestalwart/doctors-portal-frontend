@@ -1,7 +1,6 @@
 import Image from "next/image";
 import imgTreatment from "@/utilities/images/treatment.png";
-import { Button } from "../ui/button";
-
+import { Button } from "@/components/ui/button";
 const Article = () => {
 	return (
 		<article className='flex items-center justify-around px-36'>

@@ -1,40 +1,15 @@
 import Image from "next/image";
-import imgFluoride from "@/utilities/images/services/fluoride.png";
-import imgCavity from "@/utilities/images/services/cavity.png";
-import imgWhitening from "@/utilities/images/services/whitening.png";
-
-const serviceItems = [
-	{
-		src: imgFluoride,
-		alt: "fluoride treatment",
-		title: "Fluoride Treatment",
-		description:
-			"Protect your pearly whites - strong, healthy teeth are just a visit away!",
-	},
-	{
-		src: imgCavity,
-		alt: "cavity filling",
-		title: "Cavity Filling",
-		description:
-			"Keep your smile shining bright - say goodbye to toothaches!",
-	},
-	{
-		src: imgWhitening,
-		alt: "teeth whitening",
-		title: "Teeth Whitening",
-		description: "Get a dazzling smile - get ready to radiate confidence! ",
-	},
-];
+import { serviceItems } from "@/utilities/data/Home";
 
 const Services = () => {
 	return (
 		<section className='text-center'>
-			<div className='font-bold text-lg text-primary'>OUR SERVICES</div>
+			<div className='font-bold text-primary'>OUR SERVICES</div>
 			<h2 className='scroll-m-20 text-3xl font-medium mt-2 tracking-tight'>
 				Services We Provide
 			</h2>
 
-			<div className='gap-6 grid grid-cols-3 mt-12 px-6'>
+			<div className='gap-8 grid grid-cols-3 mt-12 px-8'>
 				{serviceItems.map((serviceItem, index) => (
 					<div
 						key={index}

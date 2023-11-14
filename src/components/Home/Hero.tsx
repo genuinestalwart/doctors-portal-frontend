@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const Hero = () => {
 	return (
 		<section className='bg-center bg-cover bg-hero bg-no-repeat flex flex-row-reverse h-[calc(100%_-_4rem)] items-center px-16 shadow-lg shadow-accent/5'>
-			<div className='w-1/2'>
+			<div className='ml-6 w-1/2'>
 				<Image src={doctorsChair} alt="doctor's chair" />
 			</div>
 

@@ -10,12 +10,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-	["/", "Home"],
-	["/about-us", "About"],
-	["/appointments", "Appointments"],
-	["/reviews", "Reviews"],
-	["/contact-us", "Contact Us"],
-	["/login", "Login"],
+	{ pathName: "/", pageName: "Home" },
+	{ pathName: "/about-us", pageName: "About" },
+	{ pathName: "/appointments", pageName: "Appointments" },
+	{ pathName: "/reviews", pageName: "Reviews" },
+	{ pathName: "/contact-us", pageName: "Contact Us" },
+	{ pathName: "/login", pageName: "Login" },
 ];
 
 const Header = () => {
@@ -29,14 +29,17 @@ const Header = () => {
 				<NavigationMenuList>
 					{navItems.map((navItem, index) => (
 						<NavigationMenuItem key={index}>
-							<Link href={navItem[0]} legacyBehavior passHref>
+							<Link
+								href={navItem.pathName}
+								legacyBehavior
+								passHref>
 								<NavigationMenuLink
 									className={`font-semibold px-3 py-2.5 text-sm ${
-										pathName === navItem[0]
+										pathName === navItem.pathName
 											? "bg-foreground rounded-md text-background"
 											: " hover:underline underline-offset-2"
 									}`}>
-									{navItem[1]}
+									{navItem.pageName}
 								</NavigationMenuLink>
 							</Link>
 						</NavigationMenuItem>

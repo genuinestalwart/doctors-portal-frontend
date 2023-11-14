@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang='en' suppressHydrationWarning>
-			<body className={cn("font-sans", openSans.variable)}>
+			<body className={cn("antialiased font-sans", openSans.variable)}>
 				{/* <Provider store={store}>{children}</Provider> */}
 				<div className='container'>{children}</div>
 			</body>

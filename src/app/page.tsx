@@ -1,4 +1,6 @@
+import Article from "@/components/Home/Article";
 import Hero from "@/components/Home/Hero";
+import Services from "@/components/Home/Services";
 import Summary from "@/components/Home/Summary";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
@@ -11,8 +13,10 @@ const Home = () => {
 				<Hero></Hero>
 			</div>
 
-			<main>
+			<main className='space-y-24'>
 				<Summary></Summary>
+				<Services></Services>
+				<Article></Article>
 			</main>
 
 			<Footer></Footer>

@@ -1,11 +1,12 @@
 import Image from "next/image";
-import { serviceItems } from "@/utilities/data/Home";
+import { serviceItems } from "@/utilities/data/items";
 
 const Services = () => {
 	return (
 		<section className='text-center'>
 			<div className='font-bold text-primary'>OUR SERVICES</div>
-			<h2 className='scroll-m-20 text-3xl font-medium mt-2 tracking-tight'>
+
+			<h2 className='font-medium mt-2 scroll-m-20 text-3xl tracking-tight'>
 				Services We Provide
 			</h2>
 
@@ -19,10 +20,12 @@ const Services = () => {
 							src={serviceItem.src}
 							alt={serviceItem.alt}
 						/>
+
 						<div className='space-y-1'>
 							<div className='font-semibold'>
 								{serviceItem.title}
 							</div>
+
 							<p className='px-8 text-sm'>
 								{serviceItem.description}
 							</p>

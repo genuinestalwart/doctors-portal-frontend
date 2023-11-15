@@ -11,7 +11,7 @@ const Article = () => {
 			/>
 
 			<div className='space-y-6 w-2/5'>
-				<h2 className='scroll-m-20 text-4xl font-bold tracking-tight'>
+				<h2 className='font-bold scroll-m-20 text-4xl tracking-tight'>
 					Exceptional Dental Care, on Your Terms
 				</h2>
 

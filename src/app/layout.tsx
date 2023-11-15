@@ -15,7 +15,14 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
 	title: "Doctors Portal | Home",
+	openGraph: {
+		images: "/og-image.png",
+		url: "https://github.com/genuinestalwart/",
+	},
+	metadataBase: new URL("https://gs-doctors-portal-frontend.vercel.app/"),
+	keywords: ["genuine stalwart", "doctors portal"],
 	description: "Book Your Appointments Online",
+	authors: [{ name: "Genuine Stalwart" }],
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {

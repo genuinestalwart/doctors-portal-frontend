@@ -1,5 +1,6 @@
 import Appointment from "@/components/Home/Appointment";
 import Article from "@/components/Home/Article";
+import ContactUs from "@/components/Home/ContactUs";
 import Hero from "@/components/Home/Hero";
 import Services from "@/components/Home/Services";
 import Summary from "@/components/Home/Summary";
@@ -21,6 +22,7 @@ const Home = () => {
 				<Article></Article>
 				<Appointment></Appointment>
 				<Testimonial></Testimonial>
+				<ContactUs></ContactUs>
 			</main>
 
 			<Footer></Footer>

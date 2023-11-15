@@ -1,7 +1,7 @@
 import Quote from "./Quote";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { reviewItems } from "@/utilities/data/Home";
+import { reviewItems } from "@/utilities/data/items";
 
 const Testimonial = () => {
 	return (
@@ -9,7 +9,8 @@ const Testimonial = () => {
 			<div className='flex items-center justify-between px-12'>
 				<div className='space-y-2'>
 					<div className='font-bold text-primary'>TESTIMONIAL</div>
-					<h2 className='scroll-m-20 text-3xl font-medium tracking-tight'>
+
+					<h2 className='font-medium scroll-m-20 text-3xl tracking-tight'>
 						What Our Patient Says
 					</h2>
 				</div>
@@ -34,16 +35,18 @@ const Testimonial = () => {
 									src={reviewItem.avatar.src}
 									alt='user avatar'
 								/>
+
 								<AvatarFallback className='bg-gradient-to-br font-bold from-primary text-accent-foreground text-lg to-secondary'>
 									DP
 								</AvatarFallback>
 							</Avatar>
 
 							<div className='space-y-1'>
-								<div className='text-lg font-semibold'>
+								<div className='font-semibold text-lg'>
 									{reviewItem.displayName}
 								</div>
-								<small className='text-sm font-medium leading-none'>
+
+								<small className='font-medium leading-none text-sm'>
 									{reviewItem.location}
 								</small>
 							</div>

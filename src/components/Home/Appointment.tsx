@@ -1,6 +1,6 @@
 import Image from "next/image";
 import imgDoctor from "@/utilities/images/doctor.png";
-import imgAppointment from "@/utilities/images/bg-appointment.png";
+import imgAppointment from "@/utilities/images/background.png";
 import { Button } from "@/components/ui/button";
 
 const Appointment = () => {
@@ -14,9 +14,11 @@ const Appointment = () => {
 
 			<div className='space-y-6 w-1/2'>
 				<div className='font-bold text-primary'>APPOINTMENT</div>
-				<h2 className='scroll-m-20 text-3xl font-bold tracking-tight'>
+
+				<h2 className='font-bold scroll-m-20 text-3xl tracking-tight'>
 					Make An Appointment Today
 				</h2>
+
 				<p className='text-sm'>
 					Enjoy the convenience of booking appointments from the
 					comfort of your own home, at any time that suits you.
@@ -25,6 +27,7 @@ const Appointment = () => {
 					journey by easily managing and rescheduling appointments
 					online.
 				</p>
+
 				<Button className='bg-gradient-to-r font-bold from-primary to-secondary'>
 					BOOK NOW
 				</Button>

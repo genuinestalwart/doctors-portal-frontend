@@ -4,17 +4,17 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
 	return (
-		<section className='bg-center bg-cover bg-hero bg-no-repeat flex flex-row-reverse h-[calc(100%_-_4rem)] items-center px-16 shadow-accent/5 shadow-lg'>
-			<div className='ml-6 w-1/2'>
-				<Image src={doctorsChair} alt="doctor's chair" priority />
+		<section className='bg-center bg-cover md:bg-hero bg-no-repeat md:flex flex-row-reverse md:h-[calc(100%_-_4rem)] items-center px-6 md:px-16 py-8 md:py-0 shadow-accent/5 shadow-lg space-y-8 md:space-y-0'>
+			<div className='md:ml-6 md:w-1/2'>
+				<Image src={doctorsChair} alt="doctor's chair" />
 			</div>
 
-			<div className='pr-6 space-y-6 w-1/2'>
-				<h1 className='font-bold scroll-m-20 text-5xl tracking-tight'>
+			<div className='pr-6 space-y-6 md:w-1/2'>
+				<h1 className='font-bold leading-snug scroll-m-20 text-4xl lg:text-5xl tracking-tight'>
 					Your New Smile Starts Here
 				</h1>
 
-				<p>
+				<p className='text-sm md:text-base'>
 					Find the perfect doctor for your needs, book appointments
 					effortlessly, and make informed decisions with the help of
 					our trusted community. Start your journey towards better

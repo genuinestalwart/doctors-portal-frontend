@@ -1,15 +1,10 @@
-import imgFooter from "@/utilities/images/footer.png";
 import Link from "next/link";
 
 const Footer = () => {
 	return (
-		<footer
-			className='bg-center bg-cover bg-no-repeat pb-12'
-			style={{
-				backgroundImage: `url(${imgFooter.src})`,
-			}}>
-			<div className='flex justify-between px-20 py-16 text-foreground/75'>
-				<div className='space-y-3'>
+		<footer className='bg-center bg-cover bg-no-repeat pb-12 space-y-8 md:space-y-0'>
+			<div className='md:flex justify-between p-8 md:px-20 md:py-16 space-y-12 md:space-y-0 text-foreground/75'>
+				<div className='space-y-1 md:space-y-3'>
 					<div className='text-lg font-bold'>SERVICES</div>
 
 					<ul className='font-medium leading-6 text-sm'>
@@ -36,7 +31,7 @@ const Footer = () => {
 					</ul>
 				</div>
 
-				<div className='space-y-3'>
+				<div className='space-y-1 md:space-y-3'>
 					<div className='text-lg font-bold'>ORAL HEALTH</div>
 
 					<ul className='font-medium leading-6 text-sm'>
@@ -58,7 +53,7 @@ const Footer = () => {
 					</ul>
 				</div>
 
-				<div className='space-y-3'>
+				<div className='space-y-1 md:space-y-3'>
 					<div className='text-lg font-bold'>OUR ADDRESS</div>
 
 					<p className='font-medium text-sm'>

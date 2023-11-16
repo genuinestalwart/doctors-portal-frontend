@@ -6,7 +6,7 @@ import { reviewItems } from "@/utilities/data/items";
 const Testimonial = () => {
 	return (
 		<section className='space-y-12'>
-			<div className='flex items-center justify-between px-12'>
+			<div className='flex items-center justify-between px-6 md:px-12'>
 				<div className='space-y-2'>
 					<div className='font-bold text-primary'>TESTIMONIAL</div>
 
@@ -15,12 +15,12 @@ const Testimonial = () => {
 					</h2>
 				</div>
 
-				<div className='w-1/6'>
+				<div className='w-1/3 md:w-1/6'>
 					<Quote />
 				</div>
 			</div>
 
-			<div className='gap-12 grid grid-cols-3 px-20'>
+			<div className='gap-8 md:gap-12 grid grid-cols-1 md:grid-cols-3 px-6 md:px-20'>
 				{reviewItems.map((reviewItem, index) => (
 					<div
 						key={index}

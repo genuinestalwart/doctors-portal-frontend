@@ -2,7 +2,6 @@ import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
-
 import { cn } from "@/utilities/lib/utils";
 
 const NavigationMenu = React.forwardRef<
@@ -36,7 +35,6 @@ const NavigationMenuList = React.forwardRef<
 	/>
 ));
 NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
-
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 const navigationMenuTriggerStyle = cva(
@@ -74,7 +72,6 @@ const NavigationMenuContent = React.forwardRef<
 	/>
 ));
 NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
-
 const NavigationMenuLink = NavigationMenuPrimitive.Link;
 
 const NavigationMenuViewport = React.forwardRef<

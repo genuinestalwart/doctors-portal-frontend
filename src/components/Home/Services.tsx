@@ -10,7 +10,7 @@ const Services = () => {
 				Services We Provide
 			</h2>
 
-			<div className='gap-8 grid grid-cols-3 mt-12 px-8'>
+			<div className='gap-8 grid grid-cols-1 md:grid-cols-3 mt-12 px-6 md:px-8'>
 				{serviceItems.map((serviceItem, index) => (
 					<div
 						key={index}

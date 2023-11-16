@@ -11,12 +11,12 @@ import Header from "@/components/shared/Header";
 const Home = () => {
 	return (
 		<>
-			<div className='h-screen min-[1440px]:max-h-[810px]'>
+			<div className='md:h-screen min-[1440px]:max-h-[810px]'>
 				<Header></Header>
 				<Hero></Hero>
 			</div>
 
-			<main className='space-y-28'>
+			<main className='space-y-16 md:space-y-28'>
 				<Summary></Summary>
 				<Services></Services>
 				<Article></Article>

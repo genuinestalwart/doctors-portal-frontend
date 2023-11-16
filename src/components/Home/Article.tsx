@@ -3,14 +3,16 @@ import imgTreatment from "@/utilities/images/treatment.png";
 import { Button } from "@/components/ui/button";
 const Article = () => {
 	return (
-		<article className='flex items-center justify-around px-36'>
-			<Image
-				className='rounded-lg w-2/5'
-				src={imgTreatment}
-				alt='treatment'
-			/>
+		<article className='md:flex items-center justify-around px-6 md:px-36 space-y-8 md:space-y-0'>
+			<div className='px-4 md:px-0 md:w-2/5'>
+				<Image
+					className='rounded-lg w-full'
+					src={imgTreatment}
+					alt='treatment'
+				/>
+			</div>
 
-			<div className='space-y-6 w-2/5'>
+			<div className='space-y-6 md:w-2/5'>
 				<h2 className='font-bold scroll-m-20 text-4xl tracking-tight'>
 					Exceptional Dental Care, on Your Terms
 				</h2>

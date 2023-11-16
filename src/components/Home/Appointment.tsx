@@ -6,16 +6,20 @@ import { Button } from "@/components/ui/button";
 const Appointment = () => {
 	return (
 		<section
-			className='bg-center bg-cover bg-no-repeat flex items-center justify-around px-28 text-accent-foreground'
+			className='bg-left md:bg-center bg-cover bg-no-repeat flex items-center justify-around px-6 md:px-28 py-12 md:py-0 text-accent-foreground'
 			style={{
 				backgroundImage: `url(${imgAppointment.src})`,
 			}}>
-			<Image className='w-1/2' src={imgDoctor} alt='doctor smiling' />
+			<Image
+				className='hidden md:block w-1/2'
+				src={imgDoctor}
+				alt='doctor smiling'
+			/>
 
-			<div className='space-y-6 w-1/2'>
+			<div className='space-y-6 md:w-1/2'>
 				<div className='font-bold text-primary'>APPOINTMENT</div>
 
-				<h2 className='font-bold scroll-m-20 text-3xl tracking-tight'>
+				<h2 className='font-semibold md:font-bold scroll-m-20 text-3xl tracking-tight'>
 					Make An Appointment Today
 				</h2>
 

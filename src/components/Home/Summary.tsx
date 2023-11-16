@@ -4,7 +4,7 @@ import SummaryPhone from "./summary-icons/SummaryPhone";
 
 const Summary = () => {
 	return (
-		<section className='gap-6 grid grid-cols-3 px-6 text-accent-foreground'>
+		<section className='gap-6 grid grid-cols-1 md:grid-cols-3 px-6 text-accent-foreground'>
 			<div className='bg-gradient-to-r flex from-primary items-center px-6 py-8 rounded-xl space-x-6 to-secondary'>
 				<div className='w-1/5'>
 					<SummaryClock />

@@ -78,17 +78,37 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+	.bg-background {
+		@apply text-foreground;
+	}
+	.bg-primary {
+		@apply text-primary-foreground;
+	}
+	.bg-secondary {
+		@apply text-secondary-foreground;
+	}
+	.bg-accent {
+		@apply text-accent-foreground;
+	}
 }
 
-.bg-background {
-	@apply text-foreground;
+@media (min-width: 768px) {
+	footer {
+		background-image: url("../utilities/images/footer.png");
+	}
 }
-.bg-primary {
-	@apply text-primary-foreground;
-}
-.bg-secondary {
-	@apply text-secondary-foreground;
-}
-.bg-accent {
-	@apply text-accent-foreground;
+
+.burger {
+	&.clicked {
+		.burger-icon-1 {
+			transform: rotateZ(-45deg) scaleX(0.9) translate(-7px, 6px);
+		}
+		.burger-icon-2 {
+			@apply opacity-0;
+			transform: scaleX(0.5);
+		}
+		.burger-icon-3 {
+			transform: rotateZ(45deg) scaleX(0.9) translate(-7px, -6px);
+		}
+	}
 }

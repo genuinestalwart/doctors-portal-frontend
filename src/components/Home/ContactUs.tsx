@@ -53,19 +53,19 @@ const ContactUs = () => {
 
 	return (
 		<section
-			className='bg-center bg-cover bg-no-repeat flex flex-col items-center py-16'
+			className='bg-left md:bg-center bg-cover bg-no-repeat flex flex-col items-center px-6 md:px-0 py-16'
 			style={{
 				backgroundImage: `url(${imgContactUs.src})`,
 			}}>
 			<div className='font-bold text-primary'>CONTACT US</div>
 
-			<h2 className='font-medium mt-2 scroll-m-20 text-3xl text-accent-foreground tracking-tight'>
+			<h2 className='font-medium mt-2 scroll-m-20 text-center text-3xl text-accent-foreground tracking-tight'>
 				Stay Connected With Us
 			</h2>
 
 			<Form {...form}>
 				<form
-					className='flex flex-col items-center mt-12 space-y-8 w-1/3'
+					className='flex flex-col items-center mt-12 space-y-8 w-full md:w-1/3'
 					onSubmit={form.handleSubmit(onSubmit)}>
 					<div className='space-y-4 w-full'>
 						<FormField

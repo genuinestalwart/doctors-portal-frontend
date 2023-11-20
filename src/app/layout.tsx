@@ -30,7 +30,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 		<html lang='en' suppressHydrationWarning>
 			<body
 				className={cn("antialiased font-open-sans", openSans.variable)}>
-				{/* <Provider store={store}>{children}</Provider> */}
+				{/* <Provider store={store}>
+					<div className='container'>{children}</div>
+				</Provider> */}
 				<div className='container'>{children}</div>
 			</body>
 		</html>

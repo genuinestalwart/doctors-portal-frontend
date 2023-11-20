@@ -77,6 +77,9 @@
 
 	body {
 		@apply bg-background text-foreground;
+		&:has(header .clicked) {
+			@apply overflow-hidden;
+		}
 	}
 	.bg-background {
 		@apply text-foreground;
@@ -90,6 +93,12 @@
 	.bg-accent {
 		@apply text-accent-foreground;
 	}
+	.show-sidebar {
+		animation: toggle-sidebar 0.5s ease-in-out forwards;
+	}
+	.hide-sidebar {
+		animation: toggle-sidebar 0.5s ease-in-out backwards;
+	}
 }
 
 @media (min-width: 768px) {
@@ -101,14 +110,23 @@
 .burger {
 	&.clicked {
 		.burger-icon-1 {
-			transform: rotateZ(-45deg) scaleX(0.9) translate(-7px, 6px);
+			transform: rotateZ(45deg) scaleX(0.9) translate(6.5px, 6.5px);
 		}
 		.burger-icon-2 {
 			@apply opacity-0;
 			transform: scaleX(0.5);
 		}
 		.burger-icon-3 {
-			transform: rotateZ(45deg) scaleX(0.9) translate(-7px, -6px);
+			transform: rotateZ(-45deg) scaleX(0.9) translate(7px, -7px);
 		}
+	}
+}
+
+@keyframes toggle-sidebar {
+	from {
+		@apply -z-10;
+	}
+	to {
+		@apply z-10;
 	}
 }

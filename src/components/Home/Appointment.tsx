@@ -2,6 +2,7 @@ import Image from "next/image";
 import imgDoctor from "@/utilities/images/doctor.png";
 import imgAppointment from "@/utilities/images/background.png";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Appointment = () => {
 	return (
@@ -32,8 +33,10 @@ const Appointment = () => {
 					online.
 				</p>
 
-				<Button className='bg-gradient-to-r font-bold from-primary to-secondary'>
-					BOOK NOW
+				<Button
+					className='bg-gradient-to-r font-bold from-primary to-secondary'
+					asChild>
+					<Link href='/appointment'>BOOK NOW</Link>
 				</Button>
 			</div>
 		</section>

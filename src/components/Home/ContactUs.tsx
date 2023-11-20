@@ -136,13 +136,13 @@ const ContactUs = () => {
 			<AlertDialog open={open} onOpenChange={setOpen}>
 				<AlertDialogPortal>
 					<AlertDialogOverlay className='bg-accent/90'>
-						<AlertDialogContent>
-							<AlertDialogHeader>
-								<AlertDialogTitle className='font-bold'>
+						<AlertDialogContent className='max-w-xl'>
+							<AlertDialogHeader className='text-left'>
+								<AlertDialogTitle className='font-bold text-2xl'>
 									Thank You!
 								</AlertDialogTitle>
 
-								<AlertDialogDescription className='text-foreground'>
+								<AlertDialogDescription className='max-h-96 overflow-y-auto text-foreground'>
 									Thanks for sharing your feedback regarding
 									the service. Please check your mail. You may
 									have received an auto-generated response
@@ -150,9 +150,9 @@ const ContactUs = () => {
 								</AlertDialogDescription>
 							</AlertDialogHeader>
 
-							<AlertDialogFooter>
-								<AlertDialogAction className='bg-gradient-to-r font-bold from-primary to-secondary'>
-									Continue
+							<AlertDialogFooter className='flex-row justify-end'>
+								<AlertDialogAction className='bg-gradient-to-r font-bold from-primary max-w-max to-secondary'>
+									DONE
 								</AlertDialogAction>
 							</AlertDialogFooter>
 						</AlertDialogContent>

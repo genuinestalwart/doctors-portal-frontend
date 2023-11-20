@@ -8,7 +8,7 @@ import Testimonial from "@/components/Home/Testimonial";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 
-const Home = () => {
+const HomePage = () => {
 	return (
 		<>
 			<div className='md:h-screen min-[1440px]:max-h-[810px]'>
@@ -30,4 +30,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default HomePage;

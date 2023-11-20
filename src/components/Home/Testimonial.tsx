@@ -2,6 +2,7 @@ import Quote from "./Quote";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { reviewItems } from "@/utilities/data/items";
+import Link from "next/link";
 
 const Testimonial = () => {
 	return (
@@ -56,8 +57,10 @@ const Testimonial = () => {
 			</div>
 
 			<div className='text-center'>
-				<Button className='bg-gradient-to-r font-bold from-primary to-secondary'>
-					SEE MORE
+				<Button
+					className='bg-gradient-to-r font-bold from-primary to-secondary'
+					asChild>
+					<Link href='/reviews'>SEE MORE</Link>
 				</Button>
 			</div>
 		</section>

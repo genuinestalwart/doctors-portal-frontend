@@ -1,6 +1,7 @@
 import Image from "next/image";
 import doctorsChair from "../../../public/hero-chair.png";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Hero = () => {
 	return (
@@ -21,8 +22,10 @@ const Hero = () => {
 					healthcare today!
 				</p>
 
-				<Button className='bg-gradient-to-r font-bold from-primary to-secondary'>
-					GET STARTED
+				<Button
+					className='bg-gradient-to-r font-bold from-primary to-secondary'
+					asChild>
+					<Link href='/appointment'>GET STARTED</Link>
 				</Button>
 			</div>
 		</section>

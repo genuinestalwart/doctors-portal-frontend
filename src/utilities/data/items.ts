@@ -7,8 +7,8 @@ import imgAvatar3 from "@/utilities/images/avatars/people3.png";
 
 const navItems = [
 	{ pathName: "/", pageName: "Home" },
-	{ pathName: "/about-us", pageName: "About" },
-	{ pathName: "/appointments", pageName: "Appointments" },
+	{ pathName: "/about-us", pageName: "About Us" },
+	{ pathName: "/appointment", pageName: "Appointment" },
 	{ pathName: "/reviews", pageName: "Reviews" },
 	{ pathName: "/contact-us", pageName: "Contact Us" },
 	{ pathName: "/login", pageName: "Login" },

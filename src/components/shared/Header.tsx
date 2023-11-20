@@ -34,12 +34,12 @@ const Header = () => {
 				<div className='bg-accent duration-500 burger-icon-3 h-1 rounded-md w-full'></div>
 			</div>
 
-			<div
+			<aside
 				className={`duration-500 fixed h-[calc(100vh_-_4rem)] lg:hidden inset-0 top-16 w-full -z-10 ${
 					clicked
 						? "bg-accent/75 show-sidebar"
 						: "bg-accent/0 hide-sidebar"
-				}`}></div>
+				}`}></aside>
 
 			<NavigationMenu
 				className={`block duration-500 fixed lg:flex h-[calc(100vh_-_4rem)] lg:h-auto [&_div]:h-full lg:[&_div]:h-auto inset-0 lg:inset-auto lg:relative max-w-full lg:max-w-max lg:top-auto z-20 lg:z-10 ${

@@ -73,12 +73,24 @@
 
 	* {
 		@apply border-border;
+		&::-webkit-scrollbar {
+			@apply w-1;
+		}
+		&::-webkit-scrollbar-thumb {
+			@apply bg-gradient-to-b from-primary rounded-full to-secondary;
+		}
 	}
 
 	body {
 		@apply bg-background text-foreground;
 		&:has(header .clicked) {
 			@apply overflow-hidden;
+		}
+		&::-webkit-scrollbar {
+			@apply w-2;
+		}
+		&::-webkit-scrollbar-track {
+			@apply bg-accent;
 		}
 	}
 	.bg-background {

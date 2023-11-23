@@ -28,8 +28,10 @@ There are a lot of things that I figured out such as:
 - The `theme.container` object in `tailwind.config.ts` creates a `container` class, which is very helpful to make the pages responsive.
 - If there's a component that requires full height in normal screen but a max-height in larger screens, these classes can handle it: `h-screen min-[1440px]:max-h-[810px]`.
 - I can swap the position of two sibling components using `flex-direction: row-reverse;` css property.
+- css selectors can be nested and `element:has()` selects the parent element.
 
 ## Achievements
 
-- Created my own hamburger menu component
+- Created my own hamburger menu and sidebar component
 - Learned how animation works in css
+- Learned how to use `@keyframes`

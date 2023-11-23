@@ -29,7 +29,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang='en' suppressHydrationWarning>
 			<body
-				className={cn("antialiased font-open-sans", openSans.variable)}>
+				className={cn(
+					"antialiased bg-background font-open-sans text-foreground",
+					openSans.variable
+				)}>
 				{/* <Provider store={store}>
 					<div className='container'>{children}</div>
 				</Provider> */}

@@ -22,6 +22,7 @@ const AlertDialogOverlay = React.forwardRef<
 		ref={ref}
 	/>
 ));
+
 AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
 
 const AlertDialogContent = React.forwardRef<
@@ -37,6 +38,7 @@ const AlertDialogContent = React.forwardRef<
 		{...props}
 	/>
 ));
+
 AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 
 const AlertDialogHeader = ({
@@ -51,6 +53,7 @@ const AlertDialogHeader = ({
 		{...props}
 	/>
 );
+
 AlertDialogHeader.displayName = "AlertDialogHeader";
 
 const AlertDialogFooter = ({
@@ -65,6 +68,7 @@ const AlertDialogFooter = ({
 		{...props}
 	/>
 );
+
 AlertDialogFooter.displayName = "AlertDialogFooter";
 
 const AlertDialogTitle = React.forwardRef<
@@ -77,6 +81,7 @@ const AlertDialogTitle = React.forwardRef<
 		{...props}
 	/>
 ));
+
 AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
 
 const AlertDialogDescription = React.forwardRef<
@@ -89,6 +94,7 @@ const AlertDialogDescription = React.forwardRef<
 		{...props}
 	/>
 ));
+
 AlertDialogDescription.displayName =
 	AlertDialogPrimitive.Description.displayName;
 
@@ -102,6 +108,7 @@ const AlertDialogAction = React.forwardRef<
 		{...props}
 	/>
 ));
+
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
 
 const AlertDialogCancel = React.forwardRef<
@@ -118,6 +125,7 @@ const AlertDialogCancel = React.forwardRef<
 		{...props}
 	/>
 ));
+
 AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
 
 export {

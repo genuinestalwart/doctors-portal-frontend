@@ -12,20 +12,20 @@ const HomePage = () => {
 	return (
 		<>
 			<div className='md:h-screen min-[1440px]:max-h-[810px]'>
-				<Header></Header>
-				<Hero></Hero>
+				<Header />
+				<Hero />
 			</div>
 
 			<main className='space-y-16 md:space-y-28'>
-				<Summary></Summary>
-				<Services></Services>
-				<Article></Article>
-				<Appointment></Appointment>
-				<Testimonial></Testimonial>
-				<ContactUs></ContactUs>
+				<Summary />
+				<Services />
+				<Article />
+				<Appointment />
+				<Testimonial />
+				<ContactUs />
 			</main>
 
-			<Footer></Footer>
+			<Footer />
 		</>
 	);
 };

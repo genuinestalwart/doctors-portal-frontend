@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import { Provider } from "react-redux";
-import store from "./store";
 import { cn } from "@/utilities/lib/utils";
+import ReduxProvider from "@/components/shared/ReduxProvider";
 
 const openSans = Open_Sans({
 	weight: "variable",
@@ -27,18 +26,17 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<html lang='en' suppressHydrationWarning>
-			<body
-				className={cn(
-					"antialiased bg-background font-open-sans text-foreground",
-					openSans.variable
-				)}>
-				{/* <Provider store={store}>
+		<ReduxProvider>
+			<html lang='en' suppressHydrationWarning>
+				<body
+					className={cn(
+						"antialiased bg-background font-open-sans text-foreground",
+						openSans.variable
+					)}>
 					<div className='container'>{children}</div>
-				</Provider> */}
-				<div className='container'>{children}</div>
-			</body>
-		</html>
+				</body>
+			</html>
+		</ReduxProvider>
 	);
 };
 

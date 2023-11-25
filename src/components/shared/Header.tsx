@@ -6,10 +6,18 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { navItems } from "@/utilities/data/items";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+
+const navItems = [
+	{ pathName: "/", pageName: "Home" },
+	{ pathName: "/about-us", pageName: "About Us" },
+	{ pathName: "/appointment", pageName: "Appointment" },
+	{ pathName: "/reviews", pageName: "Reviews" },
+	{ pathName: "/contact-us", pageName: "Contact Us" },
+	{ pathName: "/login", pageName: "Login" },
+];
 
 const Header = () => {
 	const pathName = usePathname();

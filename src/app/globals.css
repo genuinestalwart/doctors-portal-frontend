@@ -19,8 +19,8 @@
 		--secondary: 15 207 236;
 		--secondary-foreground: 255 255 255;
 
-		--muted: 157 161 171;
-		--muted-foreground: 68 75 94;
+		--muted: 196 198 204;
+		--muted-foreground: 107 113 128;
 
 		--accent: 58 66 86;
 		--accent-foreground: 255 255 255;
@@ -54,8 +54,8 @@
 		--secondary: 15 207 236;
 		--secondary-foreground: 255 255 255;
 
-		--muted: 157 161 171;
-		--muted-foreground: 68 75 94;
+		--muted: 196 198 204;
+		--muted-foreground: 107 113 128;
 
 		--accent: 58 66 86;
 		--accent-foreground: 255 255 255;
@@ -103,6 +103,9 @@
 	}
 	.bg-accent {
 		@apply text-accent-foreground;
+	}
+	.bg-muted {
+		@apply text-muted-foreground;
 	}
 	.show-sidebar {
 		animation: toggle-sidebar 0.5s ease-in-out forwards;

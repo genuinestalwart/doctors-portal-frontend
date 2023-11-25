@@ -1,5 +1,30 @@
 import Image from "next/image";
-import { serviceItems } from "@/utilities/data/items";
+import imgFluoride from "@/utilities/images/services/fluoride.png";
+import imgCavity from "@/utilities/images/services/cavity.png";
+import imgWhitening from "@/utilities/images/services/whitening.png";
+
+const serviceItems = [
+	{
+		src: imgFluoride,
+		alt: "fluoride treatment",
+		title: "Fluoride Treatment",
+		description:
+			"Protect your pearly whites - strong, healthy teeth are just a visit away!",
+	},
+	{
+		src: imgCavity,
+		alt: "cavity filling",
+		title: "Cavity Filling",
+		description:
+			"Keep your smile shining bright - say goodbye to toothaches!",
+	},
+	{
+		src: imgWhitening,
+		alt: "teeth whitening",
+		title: "Teeth Whitening",
+		description: "Get a dazzling smile - get ready to radiate confidence! ",
+	},
+];
 
 const Services = () => {
 	return (

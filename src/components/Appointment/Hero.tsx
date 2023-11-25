@@ -3,7 +3,8 @@
 import Image from "next/image";
 import doctorsChair from "../../../public/hero-chair.png";
 import { Calendar } from "@/components/ui/calendar";
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/utilities/lib/hooks";
+import { changeBySelect } from "@/utilities/slices/selectedDateSlice";
 
 const today = new Date();
 const targetDate =
@@ -21,19 +22,18 @@ const targetYear =
 	today.getMonth() + 1 > 11 ? today.getFullYear() + 1 : today.getFullYear();
 
 const Hero = () => {
-	const [selectedDate, setSelectedDate] = useState<Date | undefined>(
-		new Date()
-	);
+	const selectedDate = useAppSelector((state) => state.selectedDate.value);
+	const dispatch = useAppDispatch();
 
 	return (
-		<section className='bg-center bg-cover md:bg-hero bg-no-repeat md:flex flex-row-reverse md:h-[calc(100%_-_4rem)] items-center justify-evenly px-6 md:px-16 py-8 md:py-0 shadow-accent/5 shadow-lg space-y-8 md:space-y-0'>
+		<section className='bg-center bg-cover md:bg-hero bg-no-repeat md:flex flex-row-reverse md:h-[calc(100%_-_4rem)] items-center justify-evenly px-6 md:px-16 py-8 md:py-0 space-y-8 md:space-y-0'>
 			<div className='md:w-2/5'>
 				<Image src={doctorsChair} alt="doctor's chair" />
 			</div>
 
-			<div className='flex items-center justify-end w-1/4'>
+			<div className='flex items-center justify-center md:justify-end md:w-1/4'>
 				<Calendar
-					onSelect={setSelectedDate}
+					onSelect={(value) => dispatch(changeBySelect(value))}
 					className='bg-background border max-w-max p-4 rounded-xl shadow-accent/10 shadow-[0_4px_8px,_0_6px_20px]'
 					classNames={{
 						month: "space-y-4",

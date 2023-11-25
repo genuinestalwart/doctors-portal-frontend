@@ -24,14 +24,16 @@ I used the following technologies in this project:
 
 There are a lot of things that I figured out such as:
 
-- I can write `weight: "variable"` instead of specifying each and every weight of a font in `layout.tsx`.
+- We can write `weight: "variable"` instead of specifying each and every weight of a font in `layout.tsx`.
 - The `theme.container` object in `tailwind.config.ts` creates a `container` class, which is very helpful to make the pages responsive.
 - If there's a component that requires full height in normal screen but a max-height in larger screens, these classes can handle it: `h-screen min-[1440px]:max-h-[810px]`.
-- I can swap the position of two sibling components using `flex-direction: row-reverse;` css property.
-- css selectors can be nested and `element:has()` selects the parent element.
+- We can swap the position of two sibling components using `flex-direction: row-reverse;` css property.
+- CSS selectors can be nested and `element:has()` selects the parent element.
+- The `<Provider></Provider>` of react-redux need to be put in a client component and then we can wrap our layout component with it.
 
 ## Achievements
 
 - Created my own hamburger menu and sidebar component
 - Learned how animation works in css
 - Learned how to use `@keyframes`
+- Learned how to use redux states

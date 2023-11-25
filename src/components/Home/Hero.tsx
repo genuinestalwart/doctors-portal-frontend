@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Hero = () => {
 	return (
-		<section className='bg-center bg-cover md:bg-hero bg-no-repeat md:flex flex-row-reverse md:h-[calc(100%_-_4rem)] items-center px-6 md:px-16 py-8 md:py-0 shadow-accent/5 shadow-lg space-y-8 md:space-y-0'>
+		<section className='bg-center bg-cover md:bg-hero bg-no-repeat md:flex flex-row-reverse md:h-[calc(100%_-_4rem)] items-center px-6 md:px-16 py-8 md:py-0 space-y-8 md:space-y-0'>
 			<div className='md:ml-6 md:w-1/2'>
 				<Image src={doctorsChair} alt="doctor's chair" />
 			</div>

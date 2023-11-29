@@ -4,11 +4,11 @@ import Header from "@/components/shared/Header";
 const AboutUsPage = () => {
 	return (
 		<>
-			<Header></Header>
+			<Header />
 
 			<main></main>
 
-			<Footer></Footer>
+			<Footer />
 		</>
 	);
 };

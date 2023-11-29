@@ -48,9 +48,8 @@ const Slots = () => {
 						<CardFooter className='flex justify-center'>
 							<SlotModal
 								slotName={slotItem.slotName}
-								appointmentTime={
-									slotItem.appointmentTime
-								}></SlotModal>
+								appointmentTime={slotItem.appointmentTime}
+							/>
 						</CardFooter>
 					</Card>
 				))}

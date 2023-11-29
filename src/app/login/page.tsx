@@ -1,14 +1,14 @@
-import Footer from "@/components/shared/Footer";
+import LoginTab from "@/components/Login/LoginTab";
 import Header from "@/components/shared/Header";
 
 const LoginPage = () => {
 	return (
 		<>
-			<Header></Header>
+			<Header />
 
-			<main></main>
-
-			<Footer></Footer>
+			<main className='flex items-center justify-center min-h-[calc(100vh_-_4rem)]'>
+				<LoginTab />
+			</main>
 		</>
 	);
 };

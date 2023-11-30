@@ -31,8 +31,8 @@ module.exports = {
 					foreground: "rgb(var(--secondary-foreground))",
 				},
 				destructive: {
-					DEFAULT: "hsl(var(--destructive))",
-					foreground: "hsl(var(--destructive-foreground))",
+					DEFAULT: "rgb(var(--destructive))",
+					foreground: "rgb(var(--destructive-foreground))",
 				},
 				muted: {
 					DEFAULT: "rgb(var(--muted))",
@@ -51,8 +51,8 @@ module.exports = {
 					foreground: "hsl(var(--card-foreground))",
 				},
 				error: {
-					DEFAULT: "rgb(var(--error))",
-					foreground: "rgb(var(--error-foreground))",
+					DEFAULT: "hsl(var(--error))",
+					foreground: "hsl(var(--error-foreground))",
 				},
 			},
 			borderRadius: {

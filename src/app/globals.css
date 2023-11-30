@@ -25,11 +25,11 @@
 		--accent: 58 66 86;
 		--accent-foreground: 255 255 255;
 
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 210 40% 98%;
+		--destructive: 255 105 105;
+		--destructive-foreground: 255 255 255;
 
-		--error: 255 105 105;
-		--error-foreground: 255 255 255;
+		--error: 0 62.8% 30.6%;
+		--error-foreground: 210 40% 98%;
 
 		--border: 214.3 31.8% 91.4%;
 		--input: 214.3 31.8% 91.4%;
@@ -60,11 +60,11 @@
 		--accent: 58 66 86;
 		--accent-foreground: 255 255 255;
 
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 210 40% 98%;
+		--destructive: 255 105 105;
+		--destructive-foreground: 255 255 255;
 
-		--error: 255 105 105;
-		--error-foreground: 255 255 255;
+		--error: 0 62.8% 30.6%;
+		--error-foreground: 210 40% 98%;
 
 		--border: 217.2 32.6% 17.5%;
 		--input: 217.2 32.6% 17.5%;
@@ -106,6 +106,12 @@
 	}
 	.bg-muted {
 		@apply text-muted-foreground;
+	}
+	.bg-destructive {
+		@apply text-destructive-foreground;
+	}
+	.bg-error {
+		@apply text-error-foreground;
 	}
 	.show-sidebar {
 		animation: toggle-sidebar 0.5s ease-in-out forwards;

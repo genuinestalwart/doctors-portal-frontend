@@ -1,6 +1,7 @@
 import selectedDate from "@/utilities/slices/selectedDateSlice";
 import service from "@/utilities/slices/serviceSlice";
 import serviceSlot from "@/utilities/slices/serviceSlotSlice";
+import user from "@/utilities/slices/userSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({
@@ -8,6 +9,7 @@ const store = configureStore({
 		selectedDate,
 		service,
 		serviceSlot,
+		user,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

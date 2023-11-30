@@ -1,27 +1,23 @@
 "use client";
 
-import {
-	NavigationMenu,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-
-const navItems = [
-	{ pathName: "/", pageName: "Home" },
-	{ pathName: "/about-us", pageName: "About Us" },
-	{ pathName: "/appointment", pageName: "Appointment" },
-	{ pathName: "/reviews", pageName: "Reviews" },
-	{ pathName: "/contact-us", pageName: "Contact Us" },
-	{ pathName: "/login", pageName: "Login" },
-];
+import auth from "@/utilities/lib/firebase";
+import { useAppDispatch } from "@/utilities/lib/hooks";
+import { updateUser } from "@/utilities/slices/userSlice";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
+import Navbar from "./Navbar";
 
 const Header = () => {
-	const pathName = usePathname();
 	const [clicked, setClicked] = useState(false);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		onAuthStateChanged(auth, (u) => {
+			if (u) {
+				dispatch(updateUser(u));
+			}
+		});
+	}, [dispatch]);
 
 	return (
 		<header className='flex h-16 items-center justify-between px-4 md:px-16 relative lg:static'>
@@ -49,32 +45,7 @@ const Header = () => {
 						: "bg-accent/0 hide-sidebar"
 				}`}></aside>
 
-			<NavigationMenu
-				className={`block duration-500 fixed lg:flex h-[calc(100vh_-_4rem)] lg:h-auto [&_div]:h-full lg:[&_div]:h-auto inset-0 lg:inset-auto lg:relative max-w-full lg:max-w-max lg:top-auto z-20 lg:z-10 ${
-					clicked ? "top-16" : "-top-full"
-				}`}>
-				<NavigationMenuList className='bg-background lg:bg-transparent block duration-500 md:flex md:flex-col lg:flex-row p-6 lg:p-0 relative space-x-0 lg:space-x-1 space-y-4 lg:space-y-0 lg:static w-full'>
-					{navItems.map((navItem, index) => (
-						<NavigationMenuItem
-							key={index}
-							className='w-full md:w-3/4 lg:w-auto'>
-							<Link
-								href={navItem.pathName}
-								legacyBehavior
-								passHref>
-								<NavigationMenuLink
-									className={`block font-semibold lg:inline px-4 py-2.5 rounded-lg lg:rounded-md lg:text-sm w-full ${
-										pathName === navItem.pathName
-											? "bg-accent lg:px-3 text-accent-foreground"
-											: "bg-accent/5 lg:bg-transparent lg:mx-3 lg:p-0 hover:text-primary hover:underline underline-offset-2"
-									}`}>
-									{navItem.pageName}
-								</NavigationMenuLink>
-							</Link>
-						</NavigationMenuItem>
-					))}
-				</NavigationMenuList>
-			</NavigationMenu>
+			<Navbar clicked={clicked} />
 		</header>
 	);
 };

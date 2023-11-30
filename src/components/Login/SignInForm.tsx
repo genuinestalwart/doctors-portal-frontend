@@ -26,9 +26,10 @@ const signInSchema = z.object({
 		),
 });
 
+const onSignInSubmit = async (values: z.infer<typeof signInSchema>) => {};
+
 const SignInForm = (props: any) => {
 	const { errorClassNames, inputClassNames, setTabOpen } = props;
-	const onSignInSubmit = (values: z.infer<typeof signInSchema>) => {};
 
 	const signInData = useForm<z.infer<typeof signInSchema>>({
 		resolver: zodResolver(signInSchema),

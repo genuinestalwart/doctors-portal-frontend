@@ -1,23 +1,10 @@
 "use client";
 
-import auth from "@/utilities/lib/firebase";
-import { useAppDispatch } from "@/utilities/lib/hooks";
-import { updateUser } from "@/utilities/slices/userSlice";
-import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "./Navbar";
 
 const Header = () => {
 	const [clicked, setClicked] = useState(false);
-	const dispatch = useAppDispatch();
-
-	useEffect(() => {
-		onAuthStateChanged(auth, (u) => {
-			if (u) {
-				dispatch(updateUser(u));
-			}
-		});
-	}, [dispatch]);
 
 	return (
 		<header className='flex h-16 items-center justify-between px-4 md:px-16 relative lg:static'>

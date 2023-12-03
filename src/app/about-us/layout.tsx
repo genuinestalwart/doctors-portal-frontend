@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 	authors: [{ name: "Genuine Stalwart" }],
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const AboutUsLayout = ({ children }: { children: React.ReactNode }) => {
 	return <>{children}</>;
 };
 
-export default RootLayout;
+export default AboutUsLayout;

@@ -13,6 +13,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import auth from "@/utilities/lib/firebase";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useEffect, useState } from "react";
+import ErrorModal from "./ErrorModal";
+import Spinner from "@/components/shared/Spinner";
 
 const signInSchema = z.object({
 	email: z
@@ -26,10 +31,28 @@ const signInSchema = z.object({
 		),
 });
 
-const onSignInSubmit = async (values: z.infer<typeof signInSchema>) => {};
+const formFieldItems = [
+	{
+		label: "Email",
+		attributes: { autoComplete: "true", type: "email" },
+	},
+	{
+		label: "Password",
+		attributes: { autoComplete: "true", type: "password" },
+	},
+];
+
+const errorMessage = {
+	title: "Incorrect Email or Password!",
+	description:
+		"The email and password you entered doesn't match. Either your password is wrong or the email was never registered on our website. Try checking the spelling again.",
+};
 
 const SignInForm = (props: any) => {
 	const { errorClassNames, inputClassNames, setTabOpen } = props;
+	const [modalOpen, setModalOpen] = useState(false);
+	const [signInWithEmailAndPassword, user, loading, error] =
+		useSignInWithEmailAndPassword(auth);
 
 	const signInData = useForm<z.infer<typeof signInSchema>>({
 		resolver: zodResolver(signInSchema),
@@ -39,48 +62,47 @@ const SignInForm = (props: any) => {
 		},
 	});
 
+	const onSubmit = (values: z.infer<typeof signInSchema>) => {
+		signInWithEmailAndPassword(values.email, values.password);
+	};
+
+	useEffect(() => {
+		if (error) {
+			console.log(error.code);
+			setModalOpen(true);
+		}
+
+		if (user) {
+		}
+	}, [error, user]);
+
 	return (
 		<Form {...signInData}>
-			<form onSubmit={signInData.handleSubmit(onSignInSubmit)}>
+			<form onSubmit={signInData.handleSubmit(onSubmit)}>
 				<div className='space-y-2'>
-					<FormField
-						control={signInData.control}
-						name='email'
-						render={({ field }) => (
-							<FormItem className='space-y-0'>
-								<FormLabel>Email</FormLabel>
+					{formFieldItems.map((formFieldItem, index) => (
+						<FormField
+							key={index}
+							control={signInData.control}
+							name={index ? "password" : "email"}
+							render={({ field }) => (
+								<FormItem className='space-y-0'>
+									<FormLabel>{formFieldItem.label}</FormLabel>
 
-								<FormControl>
-									<Input
-										className={inputClassNames}
-										autoComplete='true'
-										{...field}
-									/>
-								</FormControl>
+									<FormControl>
+										<Input
+											className={inputClassNames}
+											disabled={loading}
+											{...formFieldItem.attributes}
+											{...field}
+										/>
+									</FormControl>
 
-								<FormMessage className={errorClassNames} />
-							</FormItem>
-						)}
-					/>
-
-					<FormField
-						control={signInData.control}
-						name='password'
-						render={({ field }) => (
-							<FormItem className='space-y-0'>
-								<FormLabel>Password</FormLabel>
-
-								<FormControl>
-									<Input
-										className={inputClassNames}
-										{...field}
-									/>
-								</FormControl>
-
-								<FormMessage className={errorClassNames} />
-							</FormItem>
-						)}
-					/>
+									<FormMessage className={errorClassNames} />
+								</FormItem>
+							)}
+						/>
+					))}
 				</div>
 
 				<div className='space-y-4'>
@@ -89,9 +111,14 @@ const SignInForm = (props: any) => {
 					</small>
 
 					<Button
-						className='bg-accent hover:bg-accent text-accent-foreground w-full'
+						className='bg-accent hover:bg-accent disabled:bg-accent/75 disabled:cursor-wait disabled:opacity-100 disabled:pointer-events-auto disabled:space-x-2 text-accent-foreground disabled:text-accent-foreground/75 w-full'
+						disabled={loading}
 						type='submit'>
-						SIGN IN
+						<span>SIGN IN</span>
+
+						<Spinner
+							className={`animate-spin -ml-1 mr-3 h-5 w-5 hidden`}
+						/>
 					</Button>
 
 					<p className='font-medium text-center text-sm'>
@@ -103,6 +130,13 @@ const SignInForm = (props: any) => {
 						</small>
 					</p>
 				</div>
+
+				<ErrorModal
+					modalOpen={modalOpen}
+					setModalOpen={setModalOpen}
+					title={errorMessage.title}
+					description={errorMessage.description}
+				/>
 			</form>
 		</Form>
 	);

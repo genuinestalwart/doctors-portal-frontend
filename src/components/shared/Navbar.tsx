@@ -1,5 +1,6 @@
 "use client";
 
+import auth from "@/utilities/lib/firebase";
 import { Button } from "@/components/ui/button";
 import {
 	NavigationMenu,
@@ -7,13 +8,7 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-} from "@/components/ui/popover";
-import { useAppSelector } from "@/utilities/lib/hooks";
-import { UserCircleIcon } from "lucide-react";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -28,7 +23,8 @@ const navItems = [
 const Navbar = (props: any) => {
 	const pathName = usePathname();
 	const { clicked } = props;
-	const user = useAppSelector((state) => state.user.value);
+	const [user, loading, error] = useAuthState(auth);
+	const [signOut] = useSignOut(auth);
 
 	return (
 		<NavigationMenu
@@ -43,7 +39,7 @@ const Navbar = (props: any) => {
 						className='w-full md:w-3/4 lg:w-auto'>
 						<Link href={navItem.pathName} legacyBehavior passHref>
 							<NavigationMenuLink
-								className={`block font-semibold lg:inline px-4 py-2.5 rounded-lg lg:rounded-md lg:text-sm w-full ${
+								className={`block font-semibold lg:inline px-4 py-2 rounded-lg lg:rounded-md lg:text-sm w-full ${
 									pathName === navItem.pathName
 										? "bg-accent lg:px-3 text-accent-foreground"
 										: "bg-accent/5 lg:bg-transparent lg:mx-3 lg:p-0 hover:text-primary hover:underline underline-offset-2"
@@ -54,71 +50,33 @@ const Navbar = (props: any) => {
 					</NavigationMenuItem>
 				))}
 
-				{user ? (
-					<>
-						<NavigationMenuItem className='hidden lg:inline-flex'>
-							<Popover>
-								<PopoverTrigger asChild>
-									<Button className='bg-transparent hover:bg-accent h-auto p-1 text-foreground hover:text-accent-foreground'>
-										<UserCircleIcon
-											className='h-8 w-8'
-											strokeWidth={1.5}
-											absoluteStrokeWidth
-										/>
-									</Button>
-								</PopoverTrigger>
+				<NavigationMenuItem className='w-full md:w-3/4 lg:w-auto'>
+					<Link
+						href={
+							loading || error || !user ? "/login" : "/dashboard"
+						}
+						legacyBehavior
+						passHref>
+						<NavigationMenuLink
+							className={`block font-semibold lg:inline px-4 py-2 rounded-lg lg:rounded-md lg:text-sm w-full ${
+								((loading || error || !user) &&
+									pathName === "/login") ||
+								pathName === "/dashboard"
+									? "bg-accent lg:px-3 text-accent-foreground"
+									: "bg-accent/5 lg:bg-transparent lg:mx-3 lg:p-0 hover:text-primary hover:underline underline-offset-2"
+							}`}>
+							{loading || error || !user ? "Log In" : "Dashboard"}
+						</NavigationMenuLink>
+					</Link>
+				</NavigationMenuItem>
 
-								<PopoverContent className='space-y-4 w-auto'>
-									<Link
-										href='/dashboard'
-										legacyBehavior
-										passHref>
-										<NavigationMenuLink
-											className={`block font-semibold px-4 py-2.5 rounded-lg text-sm w-full ${
-												pathName === "/dashboard"
-													? "bg-accent text-accent-foreground"
-													: "bg-accent/5 hover:text-primary hover:underline underline-offset-2"
-											}`}>
-											Dashboard
-										</NavigationMenuLink>
-									</Link>
-
-									<Button className='bg-destructive hover:bg-destructive block font-semibold px-4 py-2.5 rounded-lg text-sm w-full'>
-										Log Out
-									</Button>
-								</PopoverContent>
-							</Popover>
-						</NavigationMenuItem>
-
-						<Link href='/dashboard' legacyBehavior passHref>
-							<NavigationMenuLink
-								className={`block font-semibold lg:hidden px-4 py-2.5 rounded-lg w-full md:w-3/4 ${
-									pathName === "/dashboard"
-										? "bg-accent text-accent-foreground"
-										: "bg-accent/5 hover:text-primary hover:underline underline-offset-2"
-								}`}>
-								Dashboard
-							</NavigationMenuLink>
-						</Link>
-
-						<Button className='bg-destructive hover:bg-destructive block h-auto lg:hidden font-semibold px-4 py-2.5 rounded-lg text-base w-full md:w-3/4'>
-							Log Out
-						</Button>
-					</>
-				) : (
-					<NavigationMenuItem className='w-full md:w-3/4 lg:w-auto'>
-						<Link href='/login' legacyBehavior passHref>
-							<NavigationMenuLink
-								className={`block font-semibold lg:inline px-4 py-2.5 rounded-lg lg:rounded-md lg:text-sm w-full ${
-									pathName === "/login"
-										? "bg-accent lg:px-3 text-accent-foreground"
-										: "bg-accent/5 lg:bg-transparent lg:mx-3 lg:p-0 hover:text-primary hover:underline underline-offset-2"
-								}`}>
-								Log In
-							</NavigationMenuLink>
-						</Link>
-					</NavigationMenuItem>
-				)}
+				<Button
+					onClick={async () => await signOut()}
+					className={`bg-destructive hover:bg-destructive font-semibold h-auto lg:px-3 rounded-lg lg:rounded-md text-base lg:text-sm w-full md:w-3/4 lg:w-auto ${
+						loading || error || !user ? "hidden" : ""
+					}`}>
+					Log Out
+				</Button>
 			</NavigationMenuList>
 		</NavigationMenu>
 	);

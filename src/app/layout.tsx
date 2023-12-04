@@ -3,6 +3,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/utilities/lib/utils";
 import ReduxProvider from "@/components/shared/ReduxProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const openSans = Open_Sans({
 	weight: "variable",
@@ -26,17 +27,20 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<ReduxProvider>
-			<html lang='en' suppressHydrationWarning>
-				<body
-					className={cn(
-						"antialiased bg-background font-open-sans text-foreground",
-						openSans.variable
-					)}>
-					<div className='container'>{children}</div>
-				</body>
-			</html>
-		</ReduxProvider>
+		<html lang='en' suppressHydrationWarning>
+			<body
+				className={cn(
+					"antialiased bg-background font-open-sans text-foreground",
+					openSans.variable
+				)}>
+				<ReduxProvider>
+					<div className='container'>
+						{children}
+						<Toaster />
+					</div>
+				</ReduxProvider>
+			</body>
+		</html>
 	);
 };
 

@@ -20,8 +20,9 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import auth from "@/utilities/lib/firebase";
 import Spinner from "@/components/shared/Spinner";
-import { useEffect, useState } from "react";
-import ErrorModal from "./ErrorModal";
+import { useEffect } from "react";
+import { redirect } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 const signUpSchema = z.object({
 	name: z.string().min(3).max(32),
@@ -48,20 +49,13 @@ const formFieldItems = [
 	},
 ];
 
-const errorMessage = {
-	title: "Email Address Already Taken!",
-	description:
-		"Someone has already signed up using this email address. If that's you, please sign in instead.",
-};
-
 const SignUpForm = (props: any) => {
-	const { errorClassNames, inputClassNames, setTabOpen } = props;
-	const [modalOpen, setModalOpen] = useState(false);
+	const { setTabOpen } = props;
+	const { toast } = useToast();
 	const [createUserWithEmailAndPassword, user, loading, createError] =
 		useCreateUserWithEmailAndPassword(auth);
-	const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-	const [sendEmailVerification, sending, sendError] =
-		useSendEmailVerification(auth);
+	const [updateProfile, updating] = useUpdateProfile(auth);
+	const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
 	const signUpData = useForm<z.infer<typeof signUpSchema>>({
 		resolver: zodResolver(signUpSchema),
@@ -79,17 +73,29 @@ const SignUpForm = (props: any) => {
 	useEffect(() => {
 		const setUpAccount = async (displayName: string) => {
 			await updateProfile({ displayName });
-			// await sendEmailVerification();
+			await sendEmailVerification();
 		};
 
 		if (createError) {
-			setModalOpen(true);
+			toast({
+				title: "Email Address Already Taken!",
+				description:
+					"Someone has already signed up using this email address. If that's you, please sign in instead.",
+			});
 		}
 
 		if (user) {
 			setUpAccount(signUpData.getValues().name);
+			redirect("/dashboard");
 		}
-	}, [createError, sendEmailVerification, signUpData, updateProfile, user]);
+	}, [
+		createError,
+		sendEmailVerification,
+		signUpData,
+		toast,
+		updateProfile,
+		user,
+	]);
 
 	return (
 		<Form {...signUpData}>
@@ -114,7 +120,7 @@ const SignUpForm = (props: any) => {
 
 									<FormControl>
 										<Input
-											className={inputClassNames}
+											className='focus-visible:border-0 font-medium focus-visible:ring-4 focus-visible:ring-offset-0 focus-visible:ring-primary'
 											disabled={
 												loading || updating || sending
 											}
@@ -123,7 +129,7 @@ const SignUpForm = (props: any) => {
 										/>
 									</FormControl>
 
-									<FormMessage className={errorClassNames} />
+									<FormMessage className='font-semibold text-error text-left' />
 								</FormItem>
 							)}
 						/>
@@ -151,13 +157,6 @@ const SignUpForm = (props: any) => {
 						</small>
 					</p>
 				</div>
-
-				<ErrorModal
-					modalOpen={modalOpen}
-					setModalOpen={setModalOpen}
-					title={errorMessage.title}
-					description={errorMessage.description}
-				/>
 			</form>
 		</Form>
 	);

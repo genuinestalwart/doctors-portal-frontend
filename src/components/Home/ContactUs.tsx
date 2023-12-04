@@ -2,17 +2,6 @@
 
 import * as z from "zod";
 import imgContactUs from "@/utilities/images/background.png";
-import {
-	AlertDialog,
-	AlertDialogAction,
-	AlertDialogContent,
-	AlertDialogDescription,
-	AlertDialogFooter,
-	AlertDialogHeader,
-	AlertDialogOverlay,
-	AlertDialogPortal,
-	AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -24,8 +13,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
 	email: z
@@ -37,7 +26,7 @@ const formSchema = z.object({
 });
 
 const ContactUs = () => {
-	const [open, setOpen] = useState(false);
+	const { toast } = useToast();
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -48,7 +37,10 @@ const ContactUs = () => {
 	});
 
 	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		setOpen(true);
+		toast({
+			description:
+				"Thanks for sharing your feedback regarding the service. Please check your mail. You may have received an auto-generated response from our side.",
+		});
 	};
 
 	return (
@@ -132,33 +124,6 @@ const ContactUs = () => {
 					</Button>
 				</form>
 			</Form>
-
-			<AlertDialog open={open} onOpenChange={setOpen}>
-				<AlertDialogPortal>
-					<AlertDialogOverlay className='bg-accent/90'>
-						<AlertDialogContent className='max-w-xl'>
-							<AlertDialogHeader className='text-left'>
-								<AlertDialogTitle className='font-bold text-2xl'>
-									Thank You!
-								</AlertDialogTitle>
-
-								<AlertDialogDescription className='max-h-96 overflow-y-auto text-foreground'>
-									Thanks for sharing your feedback regarding
-									the service. Please check your mail. You may
-									have received an auto-generated response
-									from our side.
-								</AlertDialogDescription>
-							</AlertDialogHeader>
-
-							<AlertDialogFooter className='flex-row justify-end'>
-								<AlertDialogAction className='bg-gradient-to-r font-bold from-primary max-w-max to-secondary'>
-									DONE
-								</AlertDialogAction>
-							</AlertDialogFooter>
-						</AlertDialogContent>
-					</AlertDialogOverlay>
-				</AlertDialogPortal>
-			</AlertDialog>
 		</section>
 	);
 };

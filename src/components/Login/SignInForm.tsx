@@ -15,9 +15,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import auth from "@/utilities/lib/firebase";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useEffect, useState } from "react";
-import ErrorModal from "./ErrorModal";
+import { useEffect } from "react";
 import Spinner from "@/components/shared/Spinner";
+import { redirect } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 const signInSchema = z.object({
 	email: z
@@ -42,15 +43,9 @@ const formFieldItems = [
 	},
 ];
 
-const errorMessage = {
-	title: "Incorrect Email or Password!",
-	description:
-		"The email and password you entered doesn't match. Either your password is wrong or the email was never registered on our website. Try checking the spelling again.",
-};
-
 const SignInForm = (props: any) => {
-	const { errorClassNames, inputClassNames, setTabOpen } = props;
-	const [modalOpen, setModalOpen] = useState(false);
+	const { setTabOpen } = props;
+	const { toast } = useToast();
 	const [signInWithEmailAndPassword, user, loading, error] =
 		useSignInWithEmailAndPassword(auth);
 
@@ -68,13 +63,17 @@ const SignInForm = (props: any) => {
 
 	useEffect(() => {
 		if (error) {
-			console.log(error.code);
-			setModalOpen(true);
+			toast({
+				title: "Incorrect Email or Password!",
+				description:
+					"The email and password you entered doesn't match. Either your password is wrong or the email was never registered on our website. Try checking the spelling again.",
+			});
 		}
 
 		if (user) {
+			redirect("/dashboard");
 		}
-	}, [error, user]);
+	}, [error, toast, user]);
 
 	return (
 		<Form {...signInData}>
@@ -91,14 +90,14 @@ const SignInForm = (props: any) => {
 
 									<FormControl>
 										<Input
-											className={inputClassNames}
+											className='focus-visible:border-0 font-medium focus-visible:ring-4 focus-visible:ring-offset-0 focus-visible:ring-primary'
 											disabled={loading}
 											{...formFieldItem.attributes}
 											{...field}
 										/>
 									</FormControl>
 
-									<FormMessage className={errorClassNames} />
+									<FormMessage className='font-semibold text-error text-left' />
 								</FormItem>
 							)}
 						/>
@@ -106,7 +105,9 @@ const SignInForm = (props: any) => {
 				</div>
 
 				<div className='space-y-4'>
-					<small className='cursor-pointer hover:text-primary text-sm hover:underline underline-offset-1'>
+					<small
+						onClick={() => setTabOpen("forgot-password")}
+						className='cursor-pointer hover:text-primary text-sm hover:underline underline-offset-1'>
 						Forgot Password?
 					</small>
 
@@ -130,13 +131,6 @@ const SignInForm = (props: any) => {
 						</small>
 					</p>
 				</div>
-
-				<ErrorModal
-					modalOpen={modalOpen}
-					setModalOpen={setModalOpen}
-					title={errorMessage.title}
-					description={errorMessage.description}
-				/>
 			</form>
 		</Form>
 	);

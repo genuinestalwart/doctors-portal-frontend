@@ -1,0 +1,86 @@
+[
+	{
+		"id": 1,
+		"name": "Teeth Orthodontics",
+		"details": [
+			{ "visitingHours": "8:00 AM - 9:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 AM - 10:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "10:00 AM - 11:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "11:00 AM - 12:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "6:00 PM - 7:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "7:00 PM - 8:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "8:00 PM - 9:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 PM - 10:00 PM", "availableSlots": 0 }
+		]
+	},
+	{
+		"id": 2,
+		"name": "Cosmetic Dentistry",
+		"details": [
+			{ "visitingHours": "8:00 AM - 9:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 AM - 10:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "10:00 AM - 11:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "11:00 AM - 12:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "6:00 PM - 7:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "7:00 PM - 8:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "8:00 PM - 9:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 PM - 10:00 PM", "availableSlots": 0 }
+		]
+	},
+	{
+		"id": 3,
+		"name": "Teeth Cleaning",
+		"details": [
+			{ "visitingHours": "8:00 AM - 9:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 AM - 10:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "10:00 AM - 11:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "11:00 AM - 12:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "6:00 PM - 7:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "7:00 PM - 8:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "8:00 PM - 9:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 PM - 10:00 PM", "availableSlots": 0 }
+		]
+	},
+	{
+		"id": 4,
+		"name": "Cavity Protection",
+		"details": [
+			{ "visitingHours": "8:00 AM - 9:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 AM - 10:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "10:00 AM - 11:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "11:00 AM - 12:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "6:00 PM - 7:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "7:00 PM - 8:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "8:00 PM - 9:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 PM - 10:00 PM", "availableSlots": 0 }
+		]
+	},
+	{
+		"id": 5,
+		"name": "Pediatric Dental",
+		"details": [
+			{ "visitingHours": "8:00 AM - 9:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 AM - 10:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "10:00 AM - 11:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "11:00 AM - 12:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "6:00 PM - 7:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "7:00 PM - 8:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "8:00 PM - 9:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 PM - 10:00 PM", "availableSlots": 0 }
+		]
+	},
+	{
+		"id": 6,
+		"name": "Oral Surgery",
+		"details": [
+			{ "visitingHours": "8:00 AM - 9:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 AM - 10:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "10:00 AM - 11:00 AM", "availableSlots": 0 },
+			{ "visitingHours": "11:00 AM - 12:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "6:00 PM - 7:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "7:00 PM - 8:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "8:00 PM - 9:00 PM", "availableSlots": 0 },
+			{ "visitingHours": "9:00 PM - 10:00 PM", "availableSlots": 0 }
+		]
+	}
+]

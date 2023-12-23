@@ -44,47 +44,49 @@ const LoginTab = () => {
 	}, [user]);
 
 	return (
-		<Tabs className='md:w-1/3' defaultValue='signin' value={tabOpen}>
-			{tabItems.map((tabItem, index) => (
-				<TabsContent key={index} value={tabItem.value}>
-					<Card className='border-0 shadow-accent/10 shadow-[0_4px_8px,_0_6px_20px]'>
-						<CardHeader>
-							<CardTitle className='text-center'>
-								{tabItem.title}
-							</CardTitle>
-						</CardHeader>
+		<main className='flex items-center justify-center min-h-[calc(100vh_-_4rem)]'>
+			<Tabs className='md:w-1/3' defaultValue='signin' value={tabOpen}>
+				{tabItems.map((tabItem, index) => (
+					<TabsContent key={index} value={tabItem.value}>
+						<Card className='border-0 shadow-accent/10 shadow-[0_4px_8px,_0_6px_20px]'>
+							<CardHeader>
+								<CardTitle className='text-center'>
+									{tabItem.title}
+								</CardTitle>
+							</CardHeader>
 
-						<CardContent className='pb-4'>
-							{tabItem.value === "signin" ? (
-								<SignInForm setTabOpen={setTabOpen} />
-							) : tabItem.value === "signup" ? (
-								<SignUpForm setTabOpen={setTabOpen} />
+							<CardContent className='pb-4'>
+								{tabItem.value === "signin" ? (
+									<SignInForm setTabOpen={setTabOpen} />
+								) : tabItem.value === "signup" ? (
+									<SignUpForm setTabOpen={setTabOpen} />
+								) : (
+									<ForgotPassword setTabOpen={setTabOpen} />
+								)}
+							</CardContent>
+
+							{!(tabItem.value === "forgot-password") ? (
+								<CardFooter className='flex-col space-y-4'>
+									<div className='after:bg-accent/25 before:bg-accent/25 flex after:h-[1px] before:h-[1px] items-center after:ml-3 before:mr-3 w-full after:w-full before:w-full'>
+										OR
+									</div>
+
+									<Button
+										onClick={() => signInWithGoogle()}
+										variant='outline'
+										className='border-accent flex items-center justify-center space-x-2 text-foreground w-full'>
+										<GoogleIcon />
+										<span>CONTINUE WITH GOOGLE</span>
+									</Button>
+								</CardFooter>
 							) : (
-								<ForgotPassword setTabOpen={setTabOpen} />
+								<></>
 							)}
-						</CardContent>
-
-						{!(tabItem.value === "forgot-password") ? (
-							<CardFooter className='flex-col space-y-4'>
-								<div className='after:bg-accent/25 before:bg-accent/25 flex after:h-[1px] before:h-[1px] items-center after:ml-3 before:mr-3 w-full after:w-full before:w-full'>
-									OR
-								</div>
-
-								<Button
-									onClick={() => signInWithGoogle()}
-									variant='outline'
-									className='border-accent flex items-center justify-center space-x-2 text-foreground w-full'>
-									<GoogleIcon />
-									<span>CONTINUE WITH GOOGLE</span>
-								</Button>
-							</CardFooter>
-						) : (
-							<></>
-						)}
-					</Card>
-				</TabsContent>
-			))}
-		</Tabs>
+						</Card>
+					</TabsContent>
+				))}
+			</Tabs>
+		</main>
 	);
 };
 

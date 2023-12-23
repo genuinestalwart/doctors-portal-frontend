@@ -11,6 +11,7 @@ import {
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import Link from "next/link";
 import { redirect, usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 const navItems = [
 	{ pathName: "/", pageName: "Home" },
@@ -25,6 +26,10 @@ const Navbar = (props: any) => {
 	const { clicked } = props;
 	const [user, loading, error] = useAuthState(auth);
 	const [signOut] = useSignOut(auth);
+
+	useEffect(() => {
+		console.log(user);
+	}, [user]);
 
 	if (user && pathName === "/login") {
 		redirect("/dashboard");

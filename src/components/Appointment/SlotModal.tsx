@@ -97,7 +97,7 @@ const SlotModal = (props: any) => {
 
 								<div className='space-y-6 text-sm w-full'>
 									<Input
-										className='disabled:bg-muted font-medium disabled:opacity-100'
+										className='disabled:bg-muted border-muted font-medium disabled:opacity-100'
 										defaultValue={`${
 											months[selectedDate.getMonth()]
 										} ${selectedDate.getDate()}, ${selectedDate.getFullYear()}`}
@@ -105,7 +105,7 @@ const SlotModal = (props: any) => {
 									/>
 
 									<Input
-										className='disabled:bg-muted font-medium disabled:opacity-100'
+										className='disabled:bg-muted border-muted font-medium disabled:opacity-100'
 										defaultValue={appointmentTime}
 										disabled
 									/>
